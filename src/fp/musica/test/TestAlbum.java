@@ -46,7 +46,6 @@ public class TestAlbum {
 		 * 6. Muestre en la consola los géneros que aparecen en el álbum.
 		 */
 	}
-	Album album= new
 	
 	private static void test02() {		
 		System.out.println("*********** Prueba 2");

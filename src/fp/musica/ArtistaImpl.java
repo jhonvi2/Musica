@@ -14,11 +14,7 @@ public class ArtistaImpl implements Artista {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ((popularidad == null) ? 0 : popularidad.hashCode());
-		result = prime * result + ((urlImagen == null) ? 0 : urlImagen.hashCode());
 		return result;
 	}
 
@@ -31,36 +27,17 @@ public class ArtistaImpl implements Artista {
 		if (getClass() != obj.getClass())
 			return false;
 		ArtistaImpl other = (ArtistaImpl) obj;
-		if (genero == null) {
-			if (other.genero != null)
-				return false;
-		} else if (!genero.equals(other.genero))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (popularidad == null) {
-			if (other.popularidad != null)
-				return false;
-		} else if (!popularidad.equals(other.popularidad))
-			return false;
-		if (urlImagen == null) {
-			if (other.urlImagen != null)
-				return false;
-		} else if (!urlImagen.equals(other.urlImagen))
-			return false;
 		return true;
 	}
 
 	// Constructor1
-	public ArtistaImpl(String id, String nombre, Integer popularidad, String genero, String urlImagen) {
+
+	public ArtistaImpl(String id, String nombre, String genero, String urlImagen, Integer popularidad) {
 		// if (id.length() != 22) {
 		// throw new IllegalArgumentException(R_ID);
 		{
@@ -70,7 +47,7 @@ public class ArtistaImpl implements Artista {
 			// if(!(urlImagen.startsWith ("http")) {
 			// throw new IllegalArgumentException(R_URL)
 
-			// Checkers.check(R_ID, id.length() == 22);
+			// Checkers.check(R_ID, id.length(22) == 22);
 			// Checkers.check(R_URL,
 			Checkers.check(R_ID, restriccionId(id));
 			Checkers.check(R_POPULARIDAD, restriccionPopularidad(popularidad));
@@ -84,96 +61,104 @@ public class ArtistaImpl implements Artista {
 	}
 
 	private Boolean restriccionId(String id) {
-		return id.length() == 22;
-	}
-
-	private Boolean restriccionUrl(String urlImagen) {
-		boolean res = true;
-		if (!(urlImagen.startsWith("http"))) {
-			res = false;
+		if (id.length() != 22) {
+			return false;
+		} else {
+			return true;
 		}
-		return res;
 	}
 
 	private Boolean restriccionPopularidad(Integer popularidad) {
-		boolean res = true;
-		if (!(1 <= popularidad && popularidad <= 100)) {
-			res = false;
-
+		Boolean res = false;
+		if (popularidad >= 0 && popularidad < 100) {
+			res = true;
 		}
 		return res;
 	}
 
-	// constructor 2
+	private Boolean restriccionUrl(String url) {
+		Boolean res = false;
+		if (url.startsWith("http")) {
+			res = false;
+		}
+		return res;
+	}
+
+	// Constructor 2
 	public ArtistaImpl(String s) {
 		// List<Sring> trozos = Ficheros.procesaLineaCSV(s, "#");
 		String[] trozos = s.split("#");
 		if (trozos.length != 5) {
 			throw new IllegalArgumentException("La linea debe tener 5 elementos");
 		}
-
 		String id = trozos[0].trim();
-		Integer popularidad = new Integer(trozos[2].trim());
-		String urlImagen = trozos[4].trim();
 		String nombre = trozos[1].trim();
+		Integer popularidad = new Integer(trozos[2].trim());
 		String genero = trozos[3].trim();
+		String urlImagen = trozos[4].trim();
+
+		Checkers.check(R_ID, restriccionId(id));
+		Checkers.check(R_POPULARIDAD, restriccionPopularidad(popularidad));
+		Checkers.check(R_URL, restriccionUrl(urlImagen));
 
 		this.id = id;
-		this.popularidad = popularidad;
-		this.urlImagen = urlImagen;
 		this.nombre = nombre;
 		this.genero = genero;
+		this.urlImagen = urlImagen;
+		this.popularidad = popularidad;
+
+	}
+
+	public String getid() {
+		return this.id;
 	}
 
 	public String getnombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public String getGenero() {
-		return genero;
+		return this.genero;
 	}
 
 	public String geturlImagen() {
-		return urlImagen;
+		return this.urlImagen;
 	}
 
 	public Integer getPopularidad() {
-		return popularidad;
+		return this.popularidad;
 	}
 
 	public void setPopularidad(Integer popularidad) {
 		Checkers.check(R_POPULARIDAD, restriccionPopularidad(popularidad));
 		this.popularidad = popularidad;
-	}
+		}
 
-	@Override
-	public int compareTo(Artista o) {
-		// TODO Auto-generated method stub
-		return 0;
+	@Override // por nombre
+	public int compareTo(Artista x) {
+		int res = this.getNombre().compareTo(x.getNombre());
+		return res;
 	}
 
 	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.id;
 	}
 
 	@Override
 	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.nombre;
 	}
 
 	@Override
 	public String getURLImagen() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.urlImagen;
 	}
 
 	@Override
 	public void setURLImagen(String urlImagen) {
-		// TODO Auto-generated method stub
-
+		Checkers.check(R_URL, restriccionUrl(urlImagen));
+		this.urlImagen = urlImagen;
 	}
 
 	@Override
