@@ -61,7 +61,8 @@ public class TestArtista {
 		 */
 		Artista a = null;
 		try {
-			a = new ArtistaImpl("7623", "Depeche Mode",72,"dance rock","https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			a = new ArtistaImpl("7623", "Depeche Mode", 72, "dance rock",
+					"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
 		} catch (Exception e) {
 			System.out.println("Se ha capturado una excepcion" + e.getMessage());
 		}
@@ -86,9 +87,9 @@ public class TestArtista {
 		 */
 		Artista a = null;
 		try {
-		 a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche mode",134, "dance rock",
-				"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");}
-		catch(Exception e) {
+			a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche mode", 134, "dance rock",
+					"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		} catch (Exception e) {
 			System.out.println("Se ha capturado una excepcion");
 		}
 		System.out.println(a);
@@ -107,8 +108,14 @@ public class TestArtista {
 		 * 
 		 * 3. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
-
-		System.out.println();
+		Artista a = null;
+		try {
+			a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche Mode", 72, "dance rock",
+					"i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		} catch (Exception e) {
+			System.out.println("Se ha caputado" + e.getMessage());
+		}
+		System.out.println(a);
 	}
 
 	private static void test05(String lineaCSV) {

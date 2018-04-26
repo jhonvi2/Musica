@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 import fp.utiles.Checkers;
-import fp.utiles.Ficheros;
 
 public class AlbumImpl implements Album {
 	// Propiedades
@@ -91,8 +90,7 @@ public class AlbumImpl implements Album {
 
 	@Override
 	public TipoAlbum getTipo() {
-		// TODO Auto-generated method stub
-		return null;
+		return tipo;
 	}
 
 	@Override
@@ -154,23 +152,19 @@ public class AlbumImpl implements Album {
 
 	@Override
 	public String getNombre() {
-		// TODO Auto-generated method stub
 		return this.nombre;
 	}
 
 	@Override
 	public Integer getPopularidad() {
-		// TODO Auto-generated method stub
 		return this.population;
 	}
 
 	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
 		return this.id;
 	}
 
-	@Override
 	public Integer getAñoPublicacion() {
 
 		return this.añoPublicacion;
@@ -178,13 +172,11 @@ public class AlbumImpl implements Album {
 
 	@Override
 	public Double getPrecio() {
-		// TODO Auto-generated method stub
 		return this.precio;
 	}
 
 	@Override
 	public List<Cancion> getCanciones() {
-		// TODO Auto-generated method stub
 		return this.canciones;
 	}
 
@@ -196,7 +188,7 @@ public class AlbumImpl implements Album {
 
 	@Override
 	public String getURLImagen() {
-		// TODO Auto-generated method stub
+		
 		return this.uRL;
 	}
 

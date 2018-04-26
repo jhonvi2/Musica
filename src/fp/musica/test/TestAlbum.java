@@ -46,7 +46,6 @@ public class TestAlbum {
 		 * 6. Muestre en la consola los géneros que aparecen en el álbum.
 		 */
 	}
-	Album album= new
 	
 	private static void test02() {		
 		System.out.println("*********** Prueba 2");
@@ -88,9 +87,20 @@ public class TestAlbum {
 		 * 
 		 * 3. Si se captura la excepción, muestra un mensaje indicándolo. 
 		 */
+		try {
+			Album a = new AlbumImpl("762310PdDnwsDxAQxzQkfX", "Muse & Radiohead Collection", TipoAlbum.COMPILATION, -8, 2017, 9.90, "https://i.scdn.co/image/0b3c04473aa6a2db8235e5092ec3413f35752b8d", CANCIONES_CSV);
+			System.out.println("Hay un error en la implementación de la restricción sobre la popularidad.");
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Capturada excepción: "+e.getMessage());
+		}
 		
 		System.out.println();
 	}
+		
+		
+	
+	
 	
 	private static void test04() {		
 		System.out.println("*********** Prueba 4");

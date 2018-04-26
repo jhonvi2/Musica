@@ -125,16 +125,10 @@ public class ArtistaImpl implements Artista {
 		this.genero = genero;
 	}
 
-	public String getnombre() {
-		return nombre;
-	}
+
 
 	public String getGenero() {
 		return genero;
-	}
-
-	public String geturlImagen() {
-		return urlImagen;
 	}
 
 	public Integer getPopularidad() {
@@ -146,39 +140,36 @@ public class ArtistaImpl implements Artista {
 		this.popularidad = popularidad;
 	}
 
-	@Override
-	public int compareTo(Artista o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.id;
 	}
 
-	@Override
+	
 	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.nombre;
 	}
 
-	@Override
+	
 	public String getURLImagen() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.urlImagen;
 	}
 
-	@Override
+	
 	public void setURLImagen(String urlImagen) {
-		// TODO Auto-generated method stub
-
+		Checkers.check(R_URL, restriccionUrl(urlImagen));
+		this.urlImagen = urlImagen;
 	}
 
-	@Override
+	
 	public String toString() {
 		return "ArtistaImpl [id=" + id + ", nombre=" + nombre + ", genero=" + genero + ", urlImagen=" + urlImagen
 				+ ", popularidad=" + popularidad + "]";
+	}
+	public int compareTo(Artista a) {
+		int res = this.getNombre().compareTo(a.getNombre());
+		if(res==0) {
+			res = this.getId().compareTo(a.getId());
+		}
+		return res;
 	}
 }
