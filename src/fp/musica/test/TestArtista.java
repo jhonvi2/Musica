@@ -11,7 +11,7 @@ public class TestArtista {
 		test02();
 		test03();
 		test04();
-		test05("762310PdDnwsDxAQxzQkfX#Depeche Mode#72#dance rock#https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");		
+		test05("762310PdDnwsDxAQxzQkfX#Depeche Mode#72#dance rock#https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
 		// ID incorrecto, debe lanzar excepción
 		test05("76231X#Depeche Mode#72#dance rock#https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
 		// Popularidad incorrecta, debe lanzar excepción
@@ -24,193 +24,242 @@ public class TestArtista {
 		test09();
 	}
 
-	private static void test01() {		
+	private static void test01() {
 		System.out.println("*********** Prueba 1");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 72 género: dance
+		 * rock url de imagen:
+		 * https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
 		 * 2. Múestralo en la consola.
 		 * 
 		 * 
 		 */
-		
-	 {
-		
-	Artista a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX","Depeche Mode","72"," dance rock","https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
-	System.out.println(a);}
-	}
-	
-	
 
-	private static void test02() {		
+		{
+
+			Artista a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche Mode", " dance rock", 72,
+					"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println(a);
+		}
+	}
+
+	private static void test02() {
 		System.out.println("*********** Prueba 2");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 7623
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 7623 nombre: Depeche Mode popularidad: 72 género: dance rock url de
+		 * imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
-		 * 2. Si se crea correctamente, muestra un mensaje indicando que hay un error en la implementación de la restricción sobre el id.
+		 * 2. Si se crea correctamente, muestra un mensaje indicando que hay un error en
+		 * la implementación de la restricción sobre el id.
 		 * 
-		 * 3. Si se captura la excepción, muestra un mensaje indicándolo. 
+		 * 3. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
 		Artista a = null;
-		try {a = new ArtistaImpl("7623","Depeche Mode", 72," dance rock","https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
-		System.out.println("Pasa por aqui?");}
-		catch (Exception e) {
-			System.out.println("Se ha capturado una excepcion" +e.getMessage());
+		try {
+			a = new ArtistaImpl("7623", "Depeche Mode", " dance rock", 72,
+					"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println("Pasa por aqui?");
+		} catch (Exception e) {
+			System.out.println("Se ha capturado una excepcion" + e.getMessage());
 		}
 		System.out.println(a);
 		System.out.println();
-	
+
 	}
-	private static void test03() {		
+
+	private static void test03() {
 		System.out.println("*********** Prueba 3");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 134
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 134 género:
+		 * dance rock url de imagen:
+		 * https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
-		 * 2. Si se crea correctamente, muestra un mensaje indicando que hay un error en la implementación de la restricción sobre la popularidad.
+		 * 2. Si se crea correctamente, muestra un mensaje indicando que hay un error en
+		 * la implementación de la restricción sobre la popularidad.
 		 * 
-		 * 3. Si se captura la excepción, muestra un mensaje indicándolo. 
+		 * 3. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
-		Aritsta a= new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche mode", "dance rock", "134", "https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		Artista a = null;
+		try {
+			a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche mode", "dance rock", 134,
+					"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println("Pasa por aqui?");
+		} catch (Exception e) {
+			System.out.println("Se ha capturado una excepcion" + e.getMessage());
+		}
 		System.out.println(a);
 		System.out.println();
 	}
-	
-	private static void test04() {		
+
+	private static void test04() {
 		System.out.println("*********** Prueba 4");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 72 género: dance
+		 * rock url de imagen: i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
-		 * 2. Si se crea correctamente, muestra un mensaje indicando que hay un error en la implementación de la restricción sobre la URL de imagen.
+		 * 2. Si se crea correctamente, muestra un mensaje indicando que hay un error en
+		 * la implementación de la restricción sobre la URL de imagen.
 		 * 
-		 * 3. Si se captura la excepción, muestra un mensaje indicándolo. 
+		 * 3. Si se captura la excepción, muestra un mensaje indicándolo
 		 */
-		
+		Artista a = null;
+		try {
+			a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche mode", "dance rock", 72,
+					"i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		} catch (Exception e) {
+			System.out.println("Se ha capturado una excepcion" + e.getMessage());
+		}
+		System.out.println(a);
 		System.out.println();
+
 	}
-	
-	private static void test05(String lineaCSV) {		
+
+	private static void test05(String lineaCSV) {
 		System.out.println("*********** Prueba 5");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista a partir de la línea en formato CSV recibida como parámetro
+
+		try {
+			Artista a = new ArtistaImpl(lineaCSV);
+			System.out.println(a);
+		} catch (IllegalArgumentException e) {
+			System.out.println("Capturada excepción: " + e.getMessage());
+		}
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista a partir de la línea en formato CSV
+		 * recibida como parámetro
 		 * 
 		 * 2. Si se crea correctamente, muestra el objeto que se ha creado.
 		 * 
-		 * 3. Si se captura una excepción, muestra un mensaje indicándolo. 
+		 * 3. Si se captura una excepción, muestra un mensaje indicándolo.
 		 */
-		
+
 		System.out.println();
 	}
-	
-	private static void test06() {		
+
+	private static void test06() {
 		System.out.println("*********** Prueba 6");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
-		 * 
-		 * 2. Muéstralo en pantalla.
-		 * 
-		 * 3. Modifica la propiedad popularidad para que ahora valga 50.
-		 * 
-		 * 4. Vuelve a mostrarlo en pantalla indicando previamente que se ha cambiado el valor de popularidad.
-		 */
-		
+
+		Artista a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche Mode", "dance rock", 72,
+				"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		System.out.println(a);
+		a.setPopularidad(50);
+		System.out.println("Después de modificar el valor de popularidad:");
+		System.out.println(a);
 		System.out.println();
 	}
-	
-	private static void test07() {		
+	/*
+	 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+	 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 72 género: dance
+	 * rock url de imagen:
+	 * https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+	 * 
+	 * 2. Muéstralo en pantalla.
+	 * 
+	 * 3. Modifica la propiedad popularidad para que ahora valga 50.
+	 * 
+	 * 4. Vuelve a mostrarlo en pantalla indicando previamente que se ha cambiado el
+	 * valor de popularidad.
+	 */
+
+	private static void test07() {
 		System.out.println("*********** Prueba 7");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		try {
+			Artista a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche Mode", "dance rock", 72,
+					"http://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println(a);
+			System.out.println("Tratando de cambiar la popularidad a valor -10.");
+			a.setPopularidad(-10);
+			System.out.println("Hay un error en la implementación de la restricción sobre la propiedad popularidad.");
+		} catch (IllegalArgumentException e) {
+			System.out.println("Capturada excepción: " + e.getMessage());
+		}
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 72 género: dance
+		 * rock url de imagen:
+		 * https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
 		 * 2. Muéstralo en pantalla.
 		 * 
 		 * 3. Modifica la propiedad popularidad para que ahora valga -10.
 		 * 
-		 * 4. Si no se captura una excepción, muestra un mensaje indicando que hay un error en la implementación de la restricción sobre la popularidad.
+		 * 4. Si no se captura una excepción, muestra un mensaje indicando que hay un
+		 * error en la implementación de la restricción sobre la popularidad.
 		 * 
-		 * 5. Si se captura la excepción, muestra un mensaje indicándolo. 
+		 * 5. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
-		
+
 		System.out.println();
 	}
-	
-	private static void test08() {		
+
+	private static void test08() {
 		System.out.println("*********** Prueba 8");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		Artista a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche Mode", "dance rock", 72,
+				"https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		System.out.println(a);
+		a.setURLImagen("http://urlcambiada");
+		System.out.println("Después de modificar el valor de URL de imagen:");
+		System.out.println(a);
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 72 género: dance
+		 * rock url de imagen:
+		 * https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
 		 * 2. Muéstralo en pantalla.
 		 * 
-		 * 3. Modifica la propiedad url de imagen para que ahora valga "http://urlcambiada".
+		 * 3. Modifica la propiedad url de imagen para que ahora valga
+		 * "http://urlcambiada".
 		 * 
-		 * 4. Vuelve a mostrarlo en pantalla indicando previamente que se ha cambiado el valor de popularidad.
+		 * 4. Vuelve a mostrarlo en pantalla indicando previamente que se ha cambiado el
+		 * valor de popularidad.
 		 */
-		
+
 		System.out.println();
 	}
-	
-	private static void test09() {		
+
+	private static void test09() {
 		System.out.println("*********** Prueba 9");
-		
-		/* TODO: 
-		 * 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
-		 * id: 762310PdDnwsDxAQxzQkfX
-		 * nombre: Depeche Mode
-		 * popularidad: 72
-		 * género: dance rock
-		 * url de imagen: https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
+
+		try {
+			Artista a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX", "Depeche Mode", "dance rock", 72,
+					"http://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println(a);
+			System.out.println("Tratando de cambiar la URL a valor \"url incorrecta\"");
+			a.setURLImagen("url incorrecta");
+			System.out.println("Hay un error en la implementación de la restricción sobre la propiedad URL de imagen.");
+		} catch (IllegalArgumentException e) {
+			System.out.println("Capturada excepción: " + e.getMessage());
+		}
+
+		/*
+		 * TODO: 1. Crea un objeto de tipo Artista con estos valores en sus propiedades:
+		 * id: 762310PdDnwsDxAQxzQkfX nombre: Depeche Mode popularidad: 72 género: dance
+		 * rock url de imagen:
+		 * https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b
 		 * 
 		 * 2. Muéstralo en pantalla.
 		 * 
 		 * 3. Modifica la propiedad url de imagen para que ahora valga "url incorrecta".
 		 * 
-		 * 4. Si no se captura una excepción, muestra un mensaje indicando que hay un error en la implementación de la restricción sobre la URL de imagen.
+		 * 4. Si no se captura una excepción, muestra un mensaje indicando que hay un
+		 * error en la implementación de la restricción sobre la URL de imagen.
 		 * 
-		 * 5. Si se captura la excepción, muestra un mensaje indicándolo. 
+		 * 5. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
-		
+
 		System.out.println();
 	}
 }

@@ -37,7 +37,7 @@ public class ArtistaImpl implements Artista {
 
 	// Constructor1
 
-	public ArtistaImpl(String id, String nombre, String genero, String urlImagen, Integer popularidad) {
+	public ArtistaImpl(String id, String nombre, String genero, Integer popularidad,String urlImagen) {
 		// if (id.length() != 22) {
 		// throw new IllegalArgumentException(R_ID);
 		{
@@ -79,7 +79,7 @@ public class ArtistaImpl implements Artista {
 	private Boolean restriccionUrl(String url) {
 		Boolean res = false;
 		if (url.startsWith("http")) {
-			res = false;
+			res = true;
 		}
 		return res;
 	}
