@@ -117,7 +117,11 @@ public class ArtistaImpl implements Artista {
 		String urlImagen = trozos[4].trim();
 		String nombre = trozos[1].trim();
 		String genero = trozos[3].trim();
-
+		
+		Checkers.check(R_ID, restriccionId(id));
+		Checkers.check(R_POPULARIDAD, restriccionPopularidad(popularidad));
+		Checkers.check(R_URL, restriccionUrl(urlImagen));
+		
 		this.id = id;
 		this.popularidad = popularidad;
 		this.urlImagen = urlImagen;

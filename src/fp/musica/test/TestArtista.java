@@ -129,8 +129,16 @@ public class TestArtista {
 		 * 
 		 * 3. Si se captura una excepción, muestra un mensaje indicándolo.
 		 */
-
+		Artista a = null;
+		try {
+			 a = new ArtistaImpl(lineaCSV);
+			System.out.println(a);
+		}
+		catch(Exception e) {
+			System.out.println("Capturada excepción: " + e.getMessage());
+		}
 		System.out.println();
+		
 	}
 
 	private static void test06() {
@@ -149,10 +157,15 @@ public class TestArtista {
 		 * 4. Vuelve a mostrarlo en pantalla indicando previamente que se ha cambiado el
 		 * valor de popularidad.
 		 */
-
-		System.out.println();
+		Artista a = null;
+		a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX","Depeche Mode",72,"dance rock","https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		System.out.println(a);
+		a.setPopularidad(50);
+		System.out.println("Después de modificar el valor de popularidad:");
+		System.out.println(a);
+		
 	}
-
+	
 	private static void test07() {
 		System.out.println("*********** Prueba 7");
 
@@ -171,8 +184,19 @@ public class TestArtista {
 		 * 
 		 * 5. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
+		Artista a=null;
+		try {
+			 a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX","Depeche Mode",72,"dance rock", "http://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println(a);
+			System.out.println("Tratando de cambiar la popularidad a valor -10.");
+			a.setPopularidad(-10);
+			System.out.println("Hay un error en la implementación de la restricción sobre la propiedad popularidad.");
+		}
+		catch(Exception e) {
+			System.out.println("Capturada excepción: " + e.getMessage());
+		}
+		
 
-		System.out.println();
 	}
 
 	private static void test08() {
@@ -192,7 +216,12 @@ public class TestArtista {
 		 * 4. Vuelve a mostrarlo en pantalla indicando previamente que se ha cambiado el
 		 * valor de popularidad.
 		 */
-
+		Artista a = null;
+		 a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX","Depeche Mode",72,"dance rock", "https://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+		System.out.println(a);
+		a.setURLImagen("http://urlcambiada");
+		System.out.println("Después de modificar el valor de URL de imagen:");
+		System.out.println(a);
 		System.out.println();
 	}
 
@@ -214,7 +243,18 @@ public class TestArtista {
 		 * 
 		 * 5. Si se captura la excepción, muestra un mensaje indicándolo.
 		 */
-
+		Artista a = null;
+		try {
+			 a = new ArtistaImpl("762310PdDnwsDxAQxzQkfX","Depeche Mode",72,"dance rock", "http://i.scdn.co/image/2ec1d1c7a48df4244f0ba708eafd28b7afa6166b");
+			System.out.println(a);
+			System.out.println("cambiar la URL a valor url incorrecta");
+			a.setURLImagen("url incorrecta");
+			System.out.println("Hay un error en la implementación de la restricción sobre la propiedad URL de imagen.");
+		}
+		catch(Exception e) {
+			System.out.println("Capturada excepción: " + e.getMessage());
+		}
+		
 		System.out.println();
 	}
 }
