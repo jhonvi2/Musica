@@ -38,7 +38,7 @@ public class CancionImpl implements Cancion {
 		Checkers.check("Formato no valido", trozos.length == 6);
 		String id = trozos[0].trim();
 		String interprete = trozos[1].trim();// este
-		Duration duracion = Duration.ofSeconds(new Integer(trozos[2]));
+		Duration duracion = Duration.ofSeconds(new Integer(trozos[2].trim()));
 		String nombre = trozos[3].trim();
 		Integer popularidad = new Integer(trozos[4].trim());
 		String url = trozos[5].trim();
@@ -100,7 +100,7 @@ public class CancionImpl implements Cancion {
 
 	public String getDuracionString() {
 		long segundos = getDuracion().getSeconds();
-		String res = String.format("&02d:%02d", segundos / 6, segundos % 60);
+		String res = String.format("%02d:%02d", segundos / 6, segundos % 60);
 		return res;
 	}
 
@@ -160,7 +160,7 @@ public class CancionImpl implements Cancion {
 
 	private boolean restriccionDuracion(Duration duracion) {
 		boolean res = true;
-		if (duracion.getNano() <= 0) {
+		if (duracion.getSeconds() <= 0) {
 			res = false;
 		}
 		return res;
