@@ -186,19 +186,31 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 
 	@Override
 	public Duration getDuracionMedia() {
+		return null;
 
 	}
 
 	@Override
 	public Boolean contieneArtista(String artista) {
-		// TODO Auto-generated method stub
-		return null;
+		Boolean res = false;
+		for (Cancion cancion : canciones) {
+			if (cancion.getInterprete().getNombre().equals(artista)) {
+				res = true;
+				break;
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public ListaReproduccion getSublistaArtista(String artista) {
-		// TODO Auto-generated method stub
-		return null;
+		ListaReproduccion subListaArtista = new ListaReproduccionImpl(artista);
+		for (Cancion cancion : canciones) {
+			if (cancion.getInterprete().getNombre().equals(artista)) {
+				subListaArtista.incorpora(cancion);
+			}
+		}
+		return subListaArtista;
 	}
 
 	@Override
