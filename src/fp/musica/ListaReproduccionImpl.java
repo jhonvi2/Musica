@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -215,14 +216,25 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 
 	@Override
 	public int getPosicionCancion(String tituloCancion) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = -1;
+		for (int i = 0; i < canciones.size(); i++) {
+			if (canciones.get(i).getNombre().equals(tituloCancion)) {
+				res = i;
+				break;
+			}
+		}
+		return res;
 	}
 
 	@Override
 	public Cancion getCancionMasLarga() {
-		// TODO Auto-generated method stub
-		return null;
+		Cancion res = null;
+		for (Cancion cancion : canciones) {
+			if (res == null || cancion.getDuracion().compareTo(res.getDuracion()) > 0) {
+				res = cancion;
+			}
+		}
+		return res;
 	}
 
 	@Override
@@ -233,8 +245,11 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 
 	@Override
 	public Set<Artista> getArtistas() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Artista> artistas = new HashSet<>();
+		for (Cancion cancion : canciones) {
+			artistas.add(cancion.getInterprete());
+		}
+		return artistas;
 	}
 
 	@Override
@@ -307,8 +322,13 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 
 	@Override
 	public ListaReproduccion getSublistaPalabra(String palabra) {
-		// TODO Auto-generated method stub
-		return null;
+		ListaReproduccion res = new ListaReproduccionImpl(palabra);
+		for (Cancion cancion : canciones) {
+			if (cancion.getNombre().contains(palabra)) {
+				res.incorpora(cancion);
+			}
+		}
+		return res;
 	}
 
 	@Override
