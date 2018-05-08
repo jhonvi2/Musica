@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import fp.utiles.Checkers;
@@ -333,8 +334,16 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 
 	@Override
 	public Cancion getCancionMasPopular() {
-		// TODO Auto-generated method stub
-		return null;
+		Cancion res = null;
+		if (canciones.isEmpty()) {
+			throw new NoSuchElementException();
+		}
+		for (Cancion cancion : canciones) {
+			if (res==null || cancion.getPopularidad().compareTo(res.getPopularidad()) > 0) {
+				res = cancion;
+			}
+		}
+		return res;
 	}
 
 }
