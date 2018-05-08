@@ -240,8 +240,13 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 
 	@Override
 	public Cancion getCancionMasCorta() {
-		// TODO Auto-generated method stub
-		return null;
+		Cancion res = null;
+		for (Cancion cancion : canciones) {
+			if (res == null || cancion.getDuracion().compareTo(res.getDuracion()) < 0) {
+				res = cancion;
+			}
+		}
+		return res;
 	}
 
 	@Override
@@ -339,7 +344,7 @@ public class ListaReproduccionImpl implements ListaReproduccion {
 			throw new NoSuchElementException();
 		}
 		for (Cancion cancion : canciones) {
-			if (res==null || cancion.getPopularidad().compareTo(res.getPopularidad()) > 0) {
+			if (res == null || cancion.getPopularidad().compareTo(res.getPopularidad()) > 0) {
 				res = cancion;
 			}
 		}
